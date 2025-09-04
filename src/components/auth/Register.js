@@ -76,32 +76,29 @@ const Register = () => {
     await AsyncStorage.setItem('@email', password);
   };
 
-  // const onRegisterPress = async (emails, pass) => {
-  //   // setIsLoading(false);
-  //   // setIsLoading(true);
-  //   setIsLoading(false);
-  //   const details = {
-  //     email: emails,
-  //     password: pass,
-  //   };
-  //   onRegister(details)
-  //     .then(response => {
-  //       console.log('Response show there for Register:', response);
-  //       if (response?.message === 'succes!') {
-  //         setIsLoading(false);
-  //         dispatch(setUserDetail(response?.user));
-  //         navigation.navigate('HomeNew');
-  //       }
-  //       storePassword('Mispa@123', emails, pass);
-  //       setIsLoading(false);
-  //     })
-  //     .catch(({response}) => {
-  //       setErrorMessage(response?.data?.errors?.email[0]);
-  //       console.log('Error show there for Register:', response?.data);
-  //       setIsLoading(false);
-  //       setIsLoading(false);
-  //     });
-  // };
+  const onRegisterPress = async (emails, pass) => {
+     setIsLoading(true);
+    const details = {
+      email: emails,
+      password: pass,
+    };
+    onRegister(details)
+      .then(response => {
+        console.log('Response show there for Register:', response);
+        if (response?.message === 'succes!') {
+          setIsLoading(false);
+          dispatch(setUserDetail(response?.user));
+          navigation.navigate('HomeNew');
+        }
+        storePassword('Mispa@123', emails, pass);
+        setIsLoading(false);
+      })
+      .catch(({response}) => {
+        setErrorMessage(response?.data?.errors?.email[0]);
+        console.log('Error show there for Register:', response?.data);
+        setIsLoading(false);
+      });
+  };
 
   useEffect(() => {
     // GoogleSignin.configure({
@@ -252,9 +249,8 @@ const Register = () => {
                 setErrorMessage('Password does not match');
               } else {
                 setErrorMessage('');
-                //console.log(!isPasswordValid(values.password));
-                 navigation.navigate('Home');
-                // onRegisterPress(values?.email, values?.password);
+                console.log(!isPasswordValid(values.password));
+                onRegisterPress(values?.email, values?.password);
               }
             }}
           />

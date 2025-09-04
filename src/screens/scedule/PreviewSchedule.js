@@ -18,6 +18,7 @@ import * as Svgs from '../../assets/images/svg';
 import {addSchedules} from '../../apis/schedule-apis';
 import {useSelector} from 'react-redux';
 import Loader from '../../components/Loader';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const PreviewSchedule = ({route}) => {
   const navigation = useNavigation();
@@ -121,7 +122,12 @@ const PreviewSchedule = ({route}) => {
               {scheduleData?.service}
             </Text>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Svgs.Calendar height={wp('7%')} width={wp('7%')} />
+               <Ionicons
+                  name={'calendar-clear-outline'}
+                  size={wp('6%')}
+                  color={colors.blue}
+                  />
+              {/* <Svgs.Calendar height={wp('7%')} width={wp('7%')} /> */}
               <Text
                 style={[
                   MainStyling.subHeading,
@@ -132,7 +138,12 @@ const PreviewSchedule = ({route}) => {
               </Text>
             </View>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Svgs.Location height={wp('7%')} width={wp('7%')} />
+              {/* <Svgs.Location height={wp('7%')} width={wp('7%')} /> */}
+               <Ionicons
+                  name={'location-sharp'}
+                  size={wp('7%')}
+                  color={colors.blue}
+                  />
               <Text
                 style={[
                   MainStyling.subHeading,

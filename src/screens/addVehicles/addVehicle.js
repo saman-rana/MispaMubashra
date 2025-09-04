@@ -331,7 +331,7 @@ const AddVehicle = () => {
             } else if (values?.contactNumber == '') {
               setErrorMessage('Enter contact number');
             } else if (values?.contactNumber?.length != 11){
-              setErrorMessage('Contact Number must be 11 digits')
+              setErrorMessage('Invalid contact number')
             } else if (values?.address == '') {
               setErrorMessage('Enter address');
             } else if (values?.kiloMeters == '') {

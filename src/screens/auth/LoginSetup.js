@@ -24,6 +24,8 @@ const renderTabBar = props => (
     <TabBar
       {...props}
       indicatorStyle={{backgroundColor: colors.primary}}
+      activeColor={colors.primary}     
+      inactiveColor={colors.primary}
       style={{
         backgroundColor: colors.white,
         marginTop: -wp('3%'),
@@ -85,6 +87,8 @@ const LoginSetup = ({route}) => {
         onIndexChange={setIndex}
         initialLayout={{width: layout.width}}
         renderTabBar={renderTabBar}
+        
+        
       />
     </SafeAreaView>
   );

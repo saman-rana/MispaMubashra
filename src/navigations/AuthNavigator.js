@@ -11,6 +11,9 @@ import ResetPassword from '../screens/auth/ResetPassword';
 import SplashScreen from '../screens/splash/SplashScreen';
 import BottomTabNavigator from './BottomTabNavigator';
 import CustomDrawer from '../components/CustomDrawer';
+import aboutUs from '../screens/general/aboutUs';
+import DeleteAccount from '../screens/auth/DeleteAccount';
+import FAQ from '../screens/general/FAQ';
 
 const Stack = createStackNavigator();
 
@@ -57,10 +60,20 @@ function AuthNavigator() {
         name={'ResetPassword'}
         component={ResetPassword}
       />
+        <Stack.Screen
+        options={{headerShown: false}}
+        name={'AboutUs'}
+        component={aboutUs}
+      />
       <Stack.Screen
         options={{headerShown: false}}
-        name={'Home'}
-        component={BottomTabNavigator}
+        name={'DeleteAccount'}
+        component={DeleteAccount}
+      />
+       <Stack.Screen
+        options={{headerShown: false}}
+        name={'FAQ'}
+        component={FAQ}
       />
     
     </Stack.Navigator>
